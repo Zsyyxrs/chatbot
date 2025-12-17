@@ -1,0 +1,66 @@
+# Model Configuration
+model:
+  name: "ZhipuAI/chatglm3-6b"  # 可以换成 "bert-base-chinese" 或其他中文模型  huggingface上是zai-org/chatglm3-6b
+  dir: "/root/autodl-tmp/modelscope/hub/models/ZhipuAI/chatglm3-6b"
+  max_length: 128
+  hidden_size: 768
+  num_attention_heads: 12
+  num_hidden_layers: 12
+  vocab_size: 21128
+  type_vocab_size: 2
+  
+# ✅ LoRA 配置
+lora:
+  r: 8  # LoRA 秩，越小参数越少（建议 4-16）
+  lora_alpha: 32  # LoRA alpha，通常是 r 的 2-4 倍
+  lora_dropout: 0.1  # Dropout 概率
+  target_modules: ["query_key_value"]  # ChatGLM 的注意力层
+  lora_path: "checkpoints/best_model"
+  # 或者对于其他模型: ["q_proj", "v_proj", "k_proj", "o_proj"]
+
+# Training Configuration  
+training:
+  batch_size: 8
+  gradient_accumulation_steps: 4
+  num_epochs: 3
+  learning_rate: 0.00003
+  warmup_ratio: 0.05
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  fp16: False
+  patience: 2  # 早停耐心值
+  save_epochs: 1  # 每 N 个 epoch 保存一次
+  gradient_checkpointing: false 
+  logging_steps: 100
+  save_steps: 5000
+  eval_steps: 1000
+  seed: 42
+  
+# Generation Configuration
+generation:
+  max_length: 50
+  min_length: 5
+  temperature: 0.9
+  top_k: 50
+  top_p: 0.95
+  repetition_penalty: 1.2
+  num_beams: 3
+  do_sample: true
+  
+# Data Configuration
+data:
+  train_file: "data/train1.json"
+  val_file: "data/val1.json"
+  test_file: "data/test1.json"
+  cache_dir: "data/cache"
+  num_workers: 8  # ✅ 从4增加到16（关键优化，提速30%+）
+  prefetch_factor: 4  # ✅ 新增：预加载更多batch
+  
+# Paths
+paths:
+  output_dir: "outputs"
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+  dirty_words_file: "data/dirty_words.txt"
+
+use_wandb: false  # 是否使用 wandb 记录
