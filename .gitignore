@@ -30,10 +30,19 @@ env/
 .claude/
 .gradio/
 
-# ---------- Project artifacts ----------
-checkpoints/
-logs/
-outputs/
+# ---------- Project artifacts (keep dir + README, ignore contents) ----------
+checkpoints/*
+!checkpoints/.gitkeep
+!checkpoints/README.md
+
+logs/*
+!logs/.gitkeep
+!logs/README.md
+
+outputs/*
+!outputs/.gitkeep
+!outputs/README.md
+
 wandb/
 runs/
 *.log
