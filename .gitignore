@@ -1,11 +1,61 @@
+# ---------- Python ----------
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-venv/
-env/
-.env
 *.egg-info/
 dist/
 build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- Virtual environments ----------
+venv/
+env/
+.venv/
+.env
+.env.*
+!.env.example
+
+# ---------- IDE & editor ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ---------- Claude / AI tooling ----------
+.claude/
+.gradio/
+
+# ---------- Project artifacts ----------
+checkpoints/
+logs/
+outputs/
+wandb/
+runs/
+*.log
+
+# ---------- Model & data artifacts ----------
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+*.onnx
+
+# Datasets — ignore large generated corpora, keep reference word lists
+data/cache/
+data/*.json
+data/douban_kuakua_qa.txt
+!data/.gitkeep
+!data/README.md
+
+# ---------- Notebooks ----------
+.ipynb_checkpoints/
+
+# ---------- Misc ----------
+*.tmp
+*.bak
