@@ -138,10 +138,10 @@ chatbot/
 ├── examples/                # 独立示例
 ├── scripts/                 # 一次性工具脚本
 ├── tests/                   # 测试集
-├── data/                    # 原始/处理后语料（已 gitignore）
-├── checkpoints/             # 模型适配器（已 gitignore）
-├── outputs/                 # 生成结果（已 gitignore）
-├── logs/                    # 运行日志（已 gitignore）
+├── data/                    # 原始/处理后语料
+├── checkpoints/             # 模型适配器
+├── outputs/                 # 生成结果
+├── logs/                    # 运行日志
 ├── assets/                  # README 用截图 / GIF
 ├── main.py                  # CLI 入口
 ├── requirements.txt

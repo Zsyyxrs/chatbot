@@ -138,10 +138,10 @@ chatbot/
 ├── examples/                # Standalone demos
 ├── scripts/                 # One-off utilities
 ├── tests/                   # Test suite
-├── data/                    # Raw + processed corpora (gitignored)
-├── checkpoints/             # Saved adapters (gitignored)
-├── outputs/                 # Generated artifacts (gitignored)
-├── logs/                    # Runtime logs (gitignored)
+├── data/                    # Raw + processed corpora
+├── checkpoints/             # Saved adapters
+├── outputs/                 # Generated artifacts
+├── logs/                    # Runtime logs
 ├── assets/                  # Screenshots / GIFs for the README
 ├── main.py                  # CLI entry point
 ├── requirements.txt
